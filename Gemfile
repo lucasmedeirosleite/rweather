@@ -11,10 +11,10 @@ end
 
 gem 'active_model_serializers'
 gem 'caze'
+gem 'httparty'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
-gem 'typhoeus'
 gem 'versionist'
 gem 'webpacker'
 
@@ -44,6 +44,7 @@ group :test do
   gem 'simplecov'
   gem 'timecop'
   gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

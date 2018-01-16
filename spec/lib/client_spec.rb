@@ -14,6 +14,11 @@ describe OpenWeather::Client do
     subject(:get_data) { client.get(url: uri, params: params) }
 
     context 'when base_url invalid' do
+      let(:base_url) { 'http://ivalid-weather.com' }
+
+      it 'does not succeeds' do
+        expect(:get_data).not_to be_success
+      end
     end
 
     context 'when api_key invalid' do

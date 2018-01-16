@@ -20,10 +20,17 @@ require 'rails-controller-testing'
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'timecop'
+require 'vcr'
+require 'webmock'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock
+end
 
 APIMatchers.setup do |config|
   config.header_method = :headers
