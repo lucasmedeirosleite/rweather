@@ -11,13 +11,20 @@ describe OpenWeather::Client do
   let(:base_url) { ENV['OPEN_WEATHER_BASE_URL'] }
 
   describe '#get' do
-    subject(:get_data) { client.get(url: uri, params: params) }
+    subject(:get_data) { client.get(url, params: params) }
+
+    let(:params) do
+      { lat: -3.72, lon: -38.52 }
+    end
 
     context 'when base_url invalid' do
       let(:base_url) { 'http://ivalid-weather.com' }
+      let(:url) { "#{base_url}/weather" }
 
       it 'does not succeeds' do
-        expect(:get_data).not_to be_success
+        VCR.use_cassette('client/invalid_get') do
+          expect(get_data).not_to be_success
+        end
       end
     end
 

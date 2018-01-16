@@ -1,5 +1,7 @@
 # frozen_string_literal
 
+require_relative './open_weather/client'
+
 module OpenWeather
   Error = Class.new(RuntimeError).freeze
 
