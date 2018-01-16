@@ -3,22 +3,23 @@
 require 'rails_helper'
 require 'open_weather'
 
-RSpec.describe OpenWeather::UseCases::Find do
-  subject(:use_case) { described_class.new(lat: lat, lon: lon, client: client) }
+RSpec.describe OpenWeather::UseCases::List do
+  subject(:use_case) { described_class.new(lat: lat, lon: lon, count: count, client: client) }
 
   let(:lat) { -3.72 }
   let(:lon) { -38.52 }
+  let(:count) { 10 }
   let(:client) { double(:client) }
 
   describe '#call' do
-    subject(:find) { use_case.call }
+    subject(:list) { use_case.call }
 
     let(:content) { double }
-    let(:params) { { lat: lat, lon: lon } }
+    let(:params) { { lat: lat, lon: lon, cnt: count } }
 
     before do
       allow(client).to receive(:get)
-        .with('weather', params: params)
+        .with('find', params: params)
         .and_return(expected_response)
     end
 
@@ -28,9 +29,9 @@ RSpec.describe OpenWeather::UseCases::Find do
       end
 
       it 'returns a success response' do
-        expect(find).to be_success
-        expect(find.status).to eq(200)
-        expect(find.content).to eq(content)
+        expect(list).to be_success
+        expect(list.status).to eq(200)
+        expect(list.content).to eq(content)
       end
     end
 
@@ -40,9 +41,9 @@ RSpec.describe OpenWeather::UseCases::Find do
       end
 
       it 'returns an error response' do
-        expect(find).not_to be_success
-        expect(find.status).to eq(404)
-        expect(find.content).to eq(content)
+        expect(list).not_to be_success
+        expect(list.status).to eq(404)
+        expect(list.content).to eq(content)
       end
     end
 
@@ -52,9 +53,9 @@ RSpec.describe OpenWeather::UseCases::Find do
       end
 
       it 'returns an error response' do
-        expect(find).not_to be_success
-        expect(find.status).to eq(401)
-        expect(find.content).to eq(content)
+        expect(list).not_to be_success
+        expect(list.status).to eq(401)
+        expect(list.content).to eq(content)
       end
     end
 
@@ -64,9 +65,9 @@ RSpec.describe OpenWeather::UseCases::Find do
       end
 
       it 'returns an error response' do
-        expect(find).not_to be_success
-        expect(find.status).to eq(500)
-        expect(find.content).to eq(content)
+        expect(list).not_to be_success
+        expect(list.status).to eq(500)
+        expect(list.content).to eq(content)
       end
     end
   end

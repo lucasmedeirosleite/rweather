@@ -9,14 +9,14 @@ module OpenWeather
 
       export :call, as: :find
 
-      def initialize(lat:, lon:, client: Client)
+      def initialize(lat:, lon:, client: Client.new)
         @lat = lat
         @lon = lon
         @client = client
       end
 
       def call
-        client.get(URI, lat: lat, lon: lon)
+        client.get(URI, params: { lat: lat, lon: lon })
       end
 
       private

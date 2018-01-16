@@ -4,11 +4,13 @@ require 'caze'
 
 require_relative './open_weather/client'
 require_relative './open_weather/use_cases/find'
+require_relative './open_weather/use_cases/list'
 
 module OpenWeather
   include Caze
 
   has_use_case :find, UseCases::Find
+  has_use_case :list, UseCases::List
 
   Error = Class.new(RuntimeError).freeze
 
