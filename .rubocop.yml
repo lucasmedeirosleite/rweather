@@ -1,0 +1,27 @@
+Documentation:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.4
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
