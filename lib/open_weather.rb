@@ -1,8 +1,15 @@
 # frozen_string_literal
 
+require 'caze'
+
 require_relative './open_weather/client'
+require_relative './open_weather/use_cases/find'
 
 module OpenWeather
+  include Caze
+
+  has_use_case :find, UseCases::Find
+
   Error = Class.new(RuntimeError).freeze
 
   class << self

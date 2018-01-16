@@ -11,6 +11,7 @@ RSpec.describe OpenWeather do
 
   describe 'api' do
     it { expect(described_class).to respond_to(:configure) }
+    it { expect(described_class).to respond_to(:find) }
   end
 
   describe '.configure' do
