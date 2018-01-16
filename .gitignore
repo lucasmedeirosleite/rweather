@@ -21,6 +21,6 @@
 /public/packs-test
 /node_modules
 
-converage/
+coverage/
 
 .env
