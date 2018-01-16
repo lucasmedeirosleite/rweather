@@ -17,7 +17,7 @@ module OpenWeather
 
       response = HTTParty.get(url, params)
       code = response.code
-      Response.new(response.code, response.parsed_response, code >= 200 && code < 400 )
+      Response.new(response.code, response.parsed_response, code >= 200 && code < 400)
     end
 
     private

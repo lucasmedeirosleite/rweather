@@ -40,9 +40,9 @@ RSpec.describe OpenWeather do
         let(:api_key) { nil }
 
         it 'warns api key is invalid' do
-          expect {
+          expect do
             configure
-          }.to raise_error(described_class::Error).with_message('API Key is invalid')
+          end.to raise_error(described_class::Error).with_message('API Key is invalid')
         end
       end
 
@@ -50,9 +50,9 @@ RSpec.describe OpenWeather do
         let(:base_url) { nil }
 
         it 'warns base url is invalid' do
-          expect {
+          expect do
             configure
-        }.to raise_error(described_class::Error).with_message('Base URL is invalid')
+          end.to raise_error(described_class::Error).with_message('Base URL is invalid')
         end
       end
     end
