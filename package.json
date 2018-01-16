@@ -3,13 +3,48 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
+    "axios": "^0.17.1",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
+    "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-bootstrap": "^0.32.0",
+    "react-dom": "^16.2.0",
+    "react-promise": "^2.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
+    "babel-jest": "^22.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.1.1",
+    "react-test-renderer": "^16.2.0",
+    "redux-mock-store": "^1.4.0",
     "webpack-dev-server": "^2.11.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "app/javascript/packs/**/*.js",
+      "!app/javascript/packs/index.js",
+      "!app/javascript/packs/spec/**/*.js",
+      "!app/javascript/packs/app/redux/constants.js",
+      "!app/javascript/packs/app/redux/reducers/index.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "./app/javascript/packs/spec/spec_helper.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }
