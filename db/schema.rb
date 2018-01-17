@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116233628) do
+ActiveRecord::Schema.define(version: 20180117002950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180116233628) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "coordinates", force: :cascade do |t|
@@ -31,5 +33,21 @@ ActiveRecord::Schema.define(version: 20180116233628) do
     t.index ["latitude", "longitude"], name: "index_coordinates_on_latitude_and_longitude", unique: true
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "acronym"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["acronym"], name: "index_countries_on_acronym"
+  end
+
+  create_table "forecasts", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_forecasts_on_city_id"
+    t.index ["date"], name: "index_forecasts_on_date"
+  end
+
+  add_foreign_key "cities", "countries"
   add_foreign_key "coordinates", "cities"
+  add_foreign_key "forecasts", "cities"
 end

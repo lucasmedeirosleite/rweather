@@ -11,7 +11,9 @@ RSpec.describe City, type: :model do
     it { is_expected.to validate_presence_of(:name) }
   end
 
-  describe 'relation' do
+  describe 'relations' do
+    it { is_expected.to belong_to(:country) }
     it { is_expected.to have_one(:coordinate) }
+    it { is_expected.to have_many(:forecasts) }
   end
 end
