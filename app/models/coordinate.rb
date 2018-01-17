@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Coordinate < ApplicationRecord
   belongs_to :city
 

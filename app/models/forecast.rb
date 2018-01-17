@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Forecast < ApplicationRecord
   belongs_to :city
   has_one :wind

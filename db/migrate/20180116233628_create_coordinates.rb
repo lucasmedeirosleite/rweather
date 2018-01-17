@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCoordinates < ActiveRecord::Migration[5.1]
   def change
     create_table :coordinates do |t|
@@ -8,6 +10,6 @@ class CreateCoordinates < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index(:coordinates, [:latitude, :longitude], unique: true)
+    add_index(:coordinates, %i[latitude longitude], unique: true)
   end
 end
