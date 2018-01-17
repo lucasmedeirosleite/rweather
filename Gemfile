@@ -9,7 +9,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.9.7'
 gem 'caze'
 gem 'httparty'
 gem 'pg', '~> 0.18'

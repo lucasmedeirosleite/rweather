@@ -12,6 +12,8 @@ class CitiesRepository
       .includes(forecasts: %i[wind weather temperature])
       .where(coordinates: { latitude: lat, longitude: lon })
       .where('forecasts.date >= ?', 1.hour.ago)
+      .order('forecasts.date DESC')
+      .limit(1)
       .first
   end
 
