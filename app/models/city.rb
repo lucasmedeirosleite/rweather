@@ -3,7 +3,7 @@
 class City < ApplicationRecord
   validates :name, presence: true
 
-  has_one :coordinate
-  has_many :forecasts
+  has_one :coordinate, dependent: :destroy
+  has_many :forecasts, dependent: :destroy
   belongs_to :country
 end

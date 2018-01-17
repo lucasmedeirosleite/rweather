@@ -6,14 +6,12 @@ class CitiesRepository
   end
 
   def find(lat:, lon:)
-    one_hour_ago = (Time.now - 1.hour).utc
-
     data_source
       .includes(:country)
       .includes(:coordinate)
       .includes(forecasts: %i[wind weather temperature])
       .where(coordinates: { latitude: lat, longitude: lon })
-      .where('forecasts.date >= ?', one_hour_ago)
+      .where('forecasts.date >= ?', 1.hour.ago)
       .first
   end
 
