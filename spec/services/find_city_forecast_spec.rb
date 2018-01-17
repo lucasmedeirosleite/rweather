@@ -54,30 +54,30 @@ RSpec.describe FindCityForecast, type: :service do
             forecast = city.forecasts.first
 
             expect(forecast).to be_a(Forecast)
-            expect(forecast.date).to eq(Time.at(1_516_136_400).utc)
+            expect(forecast.date).to eq(Time.at(1_516_212_000).utc)
 
             temperature = forecast.temperature
 
             expect(temperature).to be_a(Temperature)
-            expect(temperature.value).to eq(301.15)
-            expect(temperature.min).to eq(301.15)
-            expect(temperature.max).to eq(301.15)
-            expect(temperature.pressure).to eq(1_010)
-            expect(temperature.humidity).to eq(74)
+            expect(temperature.value).to eq(304.15)
+            expect(temperature.min).to eq(304.15)
+            expect(temperature.max).to eq(304.15)
+            expect(temperature.pressure).to eq(1_009)
+            expect(temperature.humidity).to eq(58)
 
             wind = forecast.wind
 
             expect(wind).to be_a(Wind)
-            expect(wind.speed).to eq(7.2)
+            expect(wind.speed).to eq(7.7)
             expect(wind.direction).to eq(70)
 
             weather = forecast.weather
 
             expect(weather).to be_a(Weather)
-            expect(weather.main).to eq('Clouds')
-            expect(weather.description).to eq('few clouds')
+            expect(weather.main).to eq('Clear')
+            expect(weather.description).to eq('clear sky')
             expect(weather.visibility).to eq(10_000)
-            expect(weather.clouds).to eq(20)
+            expect(weather.clouds).to eq(0)
           end
         end
 

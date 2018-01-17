@@ -23,7 +23,7 @@ module OpenWeather
     private
 
     attr_reader :config, :http_client
-    delegate :base_url, :api_key, to: :config
+    delegate :base_url, :api_key, :default_unit, to: :config
 
     def build_url(uri)
       "#{base_url}/#{uri}"
@@ -31,6 +31,7 @@ module OpenWeather
 
     def build_query(params = {})
       params = { appid: api_key }.merge(params)
+      params.merge!({ units: default_unit }) if default_unit.present?
       { query: params }
     end
   end

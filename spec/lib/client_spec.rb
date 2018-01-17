@@ -6,9 +6,10 @@ require 'open_weather'
 describe OpenWeather::Client do
   subject(:client) { described_class.new(config: config) }
 
-  let(:config) { double(:config, api_key: api_key, base_url: base_url) }
+  let(:config) { double(:config, api_key: api_key, base_url: base_url, default_unit: unit) }
   let(:api_key) { ENV['OPEN_WEATHER_API_KEY'] }
   let(:base_url) { ENV['OPEN_WEATHER_BASE_URL'] }
+  let(:unit) { ENV['OPEN_WEATHER_DEFAULT_UNIT'] }
 
   describe '#get' do
     subject(:get_data) { client.get(url, params: params) }

@@ -18,6 +18,7 @@ module OpenWeather
 
   class << self
     attr_reader :api_key, :base_url
+    attr_accessor :default_unit
 
     def configure
       yield self

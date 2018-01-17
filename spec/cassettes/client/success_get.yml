@@ -21,11 +21,11 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Tue, 16 Jan 2018 17:14:37 GMT
+      - Wed, 17 Jan 2018 18:38:16 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '450'
+      - '446'
       Connection:
       - keep-alive
       X-Cache-Key:
@@ -38,8 +38,8 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"coord":{"lon":-38.52,"lat":-3.72},"weather":[{"id":801,"main":"Clouds","description":"few
-        clouds","icon":"02d"}],"base":"stations","main":{"temp":305.15,"pressure":1012,"humidity":49,"temp_min":305.15,"temp_max":305.15},"visibility":10000,"wind":{"speed":10.3,"deg":90},"clouds":{"all":20},"dt":1516118400,"sys":{"type":1,"id":4498,"message":0.0163,"country":"BR","sunrise":1516091687,"sunset":1516136003},"id":6320062,"name":"Fortaleza","cod":200}'
+      string: '{"coord":{"lon":-38.52,"lat":-3.72},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"base":"stations","main":{"temp":304.15,"pressure":1009,"humidity":58,"temp_min":304.15,"temp_max":304.15},"visibility":10000,"wind":{"speed":7.7,"deg":70},"clouds":{"all":0},"dt":1516212000,"sys":{"type":1,"id":4498,"message":0.0036,"country":"BR","sunrise":1516178112,"sunset":1516222419},"id":6320062,"name":"Fortaleza","cod":200}'
     http_version: 
-  recorded_at: Tue, 16 Jan 2018 17:14:37 GMT
+  recorded_at: Wed, 17 Jan 2018 18:38:16 GMT
 recorded_with: VCR 4.0.0
