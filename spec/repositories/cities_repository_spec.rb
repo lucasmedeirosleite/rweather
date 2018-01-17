@@ -11,7 +11,7 @@ RSpec.describe CitiesRepository, type: :repository do
     let(:lat) { -3.72 }
     let(:lon) { -38.52 }
 
-    let(:now) { DateTime.new(2_018, 1, 16) }
+    let(:now) { Time.new(2_018, 1, 16) }
 
     before do
       Timecop.freeze(now)

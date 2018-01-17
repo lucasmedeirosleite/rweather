@@ -11,7 +11,7 @@ class CitiesRepository
     data_source
       .includes(:country)
       .includes(:coordinate)
-      .includes(forecasts: [:wind, :weather, :temperature])
+      .includes(forecasts: %i[wind weather temperature])
       .where(coordinates: { latitude: lat, longitude: lon })
       .where('forecasts.date >= ?', one_hour_ago)
       .first

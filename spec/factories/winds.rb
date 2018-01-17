@@ -6,4 +6,3 @@ FactoryBot.define do
     sequence(:direction)
   end
 end
-

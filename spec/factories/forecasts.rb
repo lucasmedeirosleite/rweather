@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory(:forecast) do
-    sequence(:date) { |i| DateTime.new(2_017, 1, i+1) }
+    sequence(:date) { |i| Time.new(2_017, 1, i + 1) }
   end
 end
