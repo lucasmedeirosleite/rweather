@@ -21,7 +21,7 @@ RSpec.describe Coordinate, type: :model do
     it 'validates numericality of longitude' do
       expect(subject).to validate_numericality_of(:longitude)
         .is_greater_than_or_equal_to(-180.000_000_000)
-        .is_less_than_or_equal_to(-180.000_000_000)
+        .is_less_than_or_equal_to(180.000_000_000)
     end
 
     it 'validates uniquesses of latitude and longitudes' do
