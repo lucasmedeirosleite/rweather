@@ -13,5 +13,8 @@ RSpec.describe Forecast, type: :model do
 
   describe 'relations' do
     it { is_expected.to belong_to(:city) }
+    it { is_expected.to have_one(:wind) }
+    it { is_expected.to have_one(:weather) }
+    it { is_expected.to have_one(:temperature) }
   end
 end

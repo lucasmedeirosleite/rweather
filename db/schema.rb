@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117002950) do
+ActiveRecord::Schema.define(version: 20180117011949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,42 @@ ActiveRecord::Schema.define(version: 20180117002950) do
     t.index ["date"], name: "index_forecasts_on_date"
   end
 
+  create_table "temperatures", force: :cascade do |t|
+    t.decimal "value"
+    t.integer "pressure"
+    t.integer "humidity"
+    t.decimal "min"
+    t.decimal "max"
+    t.bigint "forecast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forecast_id"], name: "index_temperatures_on_forecast_id"
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.string "main"
+    t.string "description"
+    t.integer "visibility"
+    t.integer "clouds"
+    t.bigint "forecast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forecast_id"], name: "index_weathers_on_forecast_id"
+  end
+
+  create_table "winds", force: :cascade do |t|
+    t.decimal "speed"
+    t.integer "direction"
+    t.bigint "forecast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forecast_id"], name: "index_winds_on_forecast_id"
+  end
+
   add_foreign_key "cities", "countries"
   add_foreign_key "coordinates", "cities"
   add_foreign_key "forecasts", "cities"
+  add_foreign_key "temperatures", "forecasts"
+  add_foreign_key "weathers", "forecasts"
+  add_foreign_key "winds", "forecasts"
 end
