@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if ENV['RAILS_ENV'] == 'test'
+if ENV['COVERAGE']
   require 'simplecov'
   SimpleCov.start 'rails' do
     add_group 'Repositories', 'app/repositories'
@@ -53,6 +53,7 @@ RSpec.configure do |config|
     config.include ::Rails::Controller::Testing::Integration, type: type
   end
   config.include APIMatchers::RSpecMatchers
+  config.include ModelsHelper
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true

@@ -26,16 +26,7 @@ RSpec.describe CitiesRepository, type: :repository do
     end
 
     context 'when city exist' do
-      let(:city) { FactoryBot.create(:city, name: 'Fortaleza', country: country) }
-      let(:country) { FactoryBot.create(:country, acronym: 'BR') }
-
-      before do
-        FactoryBot.create(:coordinate, latitude: lat, longitude: lon, city: city)
-        forecast = FactoryBot.create(:forecast, date: date, city: city)
-        FactoryBot.create(:wind, forecast: forecast)
-        FactoryBot.create(:weather, forecast: forecast)
-        FactoryBot.create(:temperature, forecast: forecast)
-      end
+      let!(:city) { bootstrap_city(lat: lat, lon: lon, date: date) }
 
       context 'when forecast is more than one hour from now' do
         let(:date) { now - 2.hours }
