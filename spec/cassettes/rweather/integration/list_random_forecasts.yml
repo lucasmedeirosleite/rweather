@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/find?appid=ed6fc52262af7e1bb1155181b37d2fc2&cnt=10&lat=27.487968729680095&lon=14.881592210390643
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Wed, 17 Jan 2018 18:10:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2059'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/find?cnt=10&lat=27.49&lon=14.88"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJtZXNzYWdlIjoiYWNjdXJhdGUiLCJjb2QiOiIyMDAiLCJjb3VudCI6NSwibGlzdCI6W3siaWQiOjIyMTI3NzQsIm5hbWUiOiJTaGHigJhixKt5YXQgU2FiaMSBIiwiY29vcmQiOnsibGF0IjoyNy4xODMzLCJsb24iOjE1LjAxNjZ9LCJtYWluIjp7InRlbXAiOjI4NC4yMjMsInByZXNzdXJlIjo5NzkuNTUsImh1bWlkaXR5Ijo0NSwidGVtcF9taW4iOjI4NC4yMjMsInRlbXBfbWF4IjoyODQuMjIzLCJzZWFfbGV2ZWwiOjEwMzUuNDIsImdybmRfbGV2ZWwiOjk3OS41NX0sImR0IjoxNTE2MjEyNjA5LCJ3aW5kIjp7InNwZWVkIjoxLjI2LCJkZWciOjMzNC4wMDZ9LCJzeXMiOnsiY291bnRyeSI6IiJ9LCJyYWluIjpudWxsLCJzbm93IjpudWxsLCJjbG91ZHMiOnsiYWxsIjowfSwid2VhdGhlciI6W3siaWQiOjgwMCwibWFpbiI6IkNsZWFyIiwiZGVzY3JpcHRpb24iOiJTa3kgaXMgQ2xlYXIiLCJpY29uIjoiMDFuIn1dfSx7ImlkIjoyMjE4NDc4LCJuYW1lIjoiQmlyYWsiLCJjb29yZCI6eyJsYXQiOjI3LjU0OTYsImxvbiI6MTQuMjcxNH0sIm1haW4iOnsidGVtcCI6MjgzLjk5OCwicHJlc3N1cmUiOjk4NS44OCwiaHVtaWRpdHkiOjQ3LCJ0ZW1wX21pbiI6MjgzLjk5OCwidGVtcF9tYXgiOjI4My45OTgsInNlYV9sZXZlbCI6MTAzNS41NCwiZ3JuZF9sZXZlbCI6OTg1Ljg4fSwiZHQiOjE1MTYyMTI2MDksIndpbmQiOnsic3BlZWQiOjEuNDEsImRlZyI6MjU2LjUwNn0sInN5cyI6eyJjb3VudHJ5IjoiIn0sInJhaW4iOm51bGwsInNub3ciOm51bGwsImNsb3VkcyI6eyJhbGwiOjB9LCJ3ZWF0aGVyIjpbeyJpZCI6ODAwLCJtYWluIjoiQ2xlYXIiLCJkZXNjcmlwdGlvbiI6IlNreSBpcyBDbGVhciIsImljb24iOiIwMW4ifV19LHsiaWQiOjIyMTY3NDYsIm5hbWUiOiLhuKhpasSBcmFoIiwiY29vcmQiOnsibGF0IjoyNy4wMjMsImxvbiI6MTQuNDU2NH0sIm1haW4iOnsidGVtcCI6Mjg0Ljc3MywicHJlc3N1cmUiOjk4Mi44OCwiaHVtaWRpdHkiOjQ1LCJ0ZW1wX21pbiI6Mjg0Ljc3MywidGVtcF9tYXgiOjI4NC43NzMsInNlYV9sZXZlbCI6MTAzNS4zOCwiZ3JuZF9sZXZlbCI6OTgyLjg4fSwiZHQiOjE1MTYyMTI2MDksIndpbmQiOnsic3BlZWQiOjEuMzEsImRlZyI6MzQwLjAwNn0sInN5cyI6eyJjb3VudHJ5IjoiIn0sInJhaW4iOm51bGwsInNub3ciOm51bGwsImNsb3VkcyI6eyJhbGwiOjB9LCJ3ZWF0aGVyIjpbeyJpZCI6ODAwLCJtYWluIjoiQ2xlYXIiLCJkZXNjcmlwdGlvbiI6IlNreSBpcyBDbGVhciIsImljb24iOiIwMW4ifV19LHsiaWQiOjIyMTI3NzUsIm5hbWUiOiJTYWJoYSIsImNvb3JkIjp7ImxhdCI6MjcuMDM3NywibG9uIjoxNC40MjgzfSwibWFpbiI6eyJ0ZW1wIjoyODQuNzczLCJwcmVzc3VyZSI6OTgyLjg4LCJodW1pZGl0eSI6NDUsInRlbXBfbWluIjoyODQuNzczLCJ0ZW1wX21heCI6Mjg0Ljc3Mywic2VhX2xldmVsIjoxMDM1LjM4LCJncm5kX2xldmVsIjo5ODIuODh9LCJkdCI6MTUxNjIxMjYwOSwid2luZCI6eyJzcGVlZCI6MS4zMSwiZGVnIjozNDAuMDA2fSwic3lzIjp7ImNvdW50cnkiOiIifSwicmFpbiI6bnVsbCwic25vdyI6bnVsbCwiY2xvdWRzIjp7ImFsbCI6MH0sIndlYXRoZXIiOlt7ImlkIjo4MDAsIm1haW4iOiJDbGVhciIsImRlc2NyaXB0aW9uIjoiU2t5IGlzIENsZWFyIiwiaWNvbiI6IjAxbiJ9XX0seyJpZCI6MjIxOTk2MCwibmFtZSI6IkFsIEphZGlkIiwiY29vcmQiOnsibGF0IjoyNy4wNSwibG9uIjoxNC40fSwibWFpbiI6eyJ0ZW1wIjoyODQuNzczLCJwcmVzc3VyZSI6OTgyLjg4LCJodW1pZGl0eSI6NDUsInRlbXBfbWluIjoyODQuNzczLCJ0ZW1wX21heCI6Mjg0Ljc3Mywic2VhX2xldmVsIjoxMDM1LjM4LCJncm5kX2xldmVsIjo5ODIuODh9LCJkdCI6MTUxNjIxMjYwOSwid2luZCI6eyJzcGVlZCI6MS4zMSwiZGVnIjozNDAuMDA2fSwic3lzIjp7ImNvdW50cnkiOiIifSwicmFpbiI6bnVsbCwic25vdyI6bnVsbCwiY2xvdWRzIjp7ImFsbCI6MH0sIndlYXRoZXIiOlt7ImlkIjo4MDAsIm1haW4iOiJDbGVhciIsImRlc2NyaXB0aW9uIjoiU2t5IGlzIENsZWFyIiwiaWNvbiI6IjAxbiJ9XX1dfQ==
+    http_version: 
+  recorded_at: Wed, 17 Jan 2018 18:10:09 GMT
+recorded_with: VCR 4.0.0
