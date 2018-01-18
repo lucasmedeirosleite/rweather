@@ -9,21 +9,25 @@ if ENV['COVERAGE']
 end
 
 require 'spec_helper'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
+require 'rspec/rails'
+
 require 'api_matchers'
 require 'database_cleaner'
+require 'dox'
 require 'factory_bot_rails'
 require 'rails-controller-testing'
-require 'rspec/rails'
 require 'shoulda-matchers'
 require 'timecop'
 require 'vcr'
 require 'webmock'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/api_doc/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -70,4 +74,15 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.after(:each, :request) do |example|
+    example.metadata[:request] = request
+    example.metadata[:response] = response
+  end
+end
+
+Dox.configure do |config|
+  config.header_file_path = Rails.root.join('spec/api_doc/v1/descriptions/header.md')
+  config.desc_folder_path = Rails.root.join('spec/api_doc/v1/descriptions')
+  config.headers_whitelist = ['Accept', 'Content-Type']
 end

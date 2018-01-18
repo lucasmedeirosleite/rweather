@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&lat=-200.5&lon=1000.05
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&lat=-200.5&lon=1000.05&units=metric
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Wed, 17 Jan 2018 18:36:43 GMT
+      - Thu, 18 Jan 2018 02:30:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Cache-Key:
-      - "/data/2.5/weather?lat=-200.5&lon=1000.05"
+      - "/data/2.5/weather?lat=-200.5&lon=1000.05&units=metric"
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Credentials:

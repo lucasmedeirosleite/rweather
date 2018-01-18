@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&lat=-3.72&lon=-38.52
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&lat=-3.72&lon=-38.52&units=metric
     body:
       encoding: US-ASCII
       string: ''
@@ -21,15 +21,15 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Wed, 17 Jan 2018 19:12:54 GMT
+      - Thu, 18 Jan 2018 02:30:53 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '446'
+      - '439'
       Connection:
       - keep-alive
       X-Cache-Key:
-      - "/data/2.5/weather?lat=-3.72&lon=-38.52"
+      - "/data/2.5/weather?lat=-3.72&lon=-38.52&units=metric"
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Credentials:
@@ -38,8 +38,8 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"coord":{"lon":-38.52,"lat":-3.72},"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"base":"stations","main":{"temp":304.15,"pressure":1009,"humidity":58,"temp_min":304.15,"temp_max":304.15},"visibility":10000,"wind":{"speed":7.7,"deg":70},"clouds":{"all":0},"dt":1516212000,"sys":{"type":1,"id":4498,"message":0.0018,"country":"BR","sunrise":1516178113,"sunset":1516222419},"id":6320062,"name":"Fortaleza","cod":200}'
+      string: '{"coord":{"lon":-38.52,"lat":-3.72},"weather":[{"id":803,"main":"Clouds","description":"broken
+        clouds","icon":"04n"}],"base":"stations","main":{"temp":28,"pressure":1013,"humidity":74,"temp_min":28,"temp_max":28},"visibility":10000,"wind":{"speed":5.1,"deg":70},"clouds":{"all":75},"dt":1516240800,"sys":{"type":1,"id":4498,"message":0.003,"country":"BR","sunrise":1516264520,"sunset":1516308824},"id":6320062,"name":"Fortaleza","cod":200}'
     http_version: 
-  recorded_at: Wed, 17 Jan 2018 19:12:54 GMT
+  recorded_at: Thu, 18 Jan 2018 02:30:53 GMT
 recorded_with: VCR 4.0.0

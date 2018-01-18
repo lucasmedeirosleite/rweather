@@ -4,7 +4,7 @@ module API
   module V1
     class CitiesController < APIController
       def search
-        result = find_forecast
+        result = FindCityForecast.new.call(lat: params[:lat], lon: params[:lon])
 
         case result.status
         when :found
@@ -16,13 +16,7 @@ module API
 
       def random
         result = ListRandomForecasts.new.call
-        render json: result.data, status: :ok
-      end
-
-      private
-
-      def find_forecast
-        FindCityForecast.new.call(lat: params[:lat], lon: params[:lon])
+        render json: result.data, root: false, status: :ok
       end
     end
   end
