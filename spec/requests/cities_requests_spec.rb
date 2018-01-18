@@ -2,9 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Cities', dox: true, type: :request do
-  include ApiDoc::V1::Cities::Api
-
+RSpec.describe 'Cities', type: :request do
   let(:city_name) { 'Fortaleza' }
   let(:country) { 'BR' }
   let(:lat) { -3.72 }
@@ -22,8 +20,6 @@ RSpec.describe 'Cities', dox: true, type: :request do
   after { Timecop.return }
 
   describe 'GET #search' do
-    include ApiDoc::V1::Cities::Search
-
     subject(:get_search_city) do
       get search_api_cities_path, params: { lat: lat, lon: lon }, headers: headers
     end
@@ -55,8 +51,6 @@ RSpec.describe 'Cities', dox: true, type: :request do
   end
 
   describe 'GET #random' do
-    include ApiDoc::V1::Cities::Random
-
     subject(:get_random_forecasts) do
       get random_api_cities_path, headers: headers
     end
