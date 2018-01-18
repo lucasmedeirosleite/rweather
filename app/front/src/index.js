@@ -7,4 +7,20 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log(process.env.API_HOST);
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxPromise from 'redux-promise';
+
+import App from './app/app';
+import reducers from './app/redux/reducers/index';
+
+const app = (
+  <Provider store={createStore(reducers, applyMiddleware(ReduxPromise))}>
+    <App />
+  </Provider>
+);
+
+ReactDOM.render(app, document.getElementById('root'));
+

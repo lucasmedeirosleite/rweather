@@ -17,6 +17,7 @@ class FindCityForecast
     result = client.find(lat: lat, lon: lon)
     return Result.new(:not_found, nil) unless result.success?
 
+
     Result.new(:found, from_response(result.content))
   end
 
@@ -25,10 +26,13 @@ class FindCityForecast
   attr_reader :client, :repository
 
   def from_response(response)
+    city = City.find_or_initialize_by(name: response['name'])
+
+    return city unless city.new_forecast?(date: Time.at(response['dt']).utc)
+
     country = Country.find_or_initialize_by(acronym: response['sys']['country'])
     coordinate = Coordinate.find_or_initialize_by(latitude: response['coord']['lat'],
                                                   longitude: response['coord']['lon'])
-    city = City.find_or_initialize_by(name: response['name'])
 
     city.country = country
     city.coordinate = coordinate

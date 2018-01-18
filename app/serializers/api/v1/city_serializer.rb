@@ -3,10 +3,13 @@
 module API
   module V1
     class CitySerializer < ActiveModel::Serializer
-      attributes :name
+      attributes :name, :forecast
       has_one :country
       has_one :coordinate
-      has_many :forecasts
+
+      def forecast
+        ForecastSerializer.new(object.forecasts.first, root: false)
+      end
     end
   end
 end
