@@ -31,7 +31,7 @@ module OpenWeather
 
     def build_query(params = {})
       params = { appid: api_key }.merge(params)
-      params.merge!({ units: default_unit }) if default_unit.present?
+      params[:units] = default_unit if default_unit.present?
       { query: params }
     end
   end

@@ -17,7 +17,6 @@ class FindCityForecast
     result = client.find(term: name)
     return Result.new(:not_found, nil) unless result.success?
 
-
     Result.new(:found, from_response(result.content))
   end
 

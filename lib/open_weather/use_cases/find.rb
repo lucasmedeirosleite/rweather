@@ -10,7 +10,7 @@ module OpenWeather
       export :call, as: :find
 
       def initialize(term:, client: Client.new)
-        @term=term
+        @term = term
         @client = client
       end
 

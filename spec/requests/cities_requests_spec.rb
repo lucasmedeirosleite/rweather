@@ -83,7 +83,6 @@ RSpec.describe 'Cities', type: :request do
           .and_return(380)
       end
 
-
       it 'returns a success response' do
         VCR.use_cassette('rweather/integration/list_random_forecasts_invalid') do
           get_random_forecasts
@@ -95,5 +94,3 @@ RSpec.describe 'Cities', type: :request do
     end
   end
 end
-
-
