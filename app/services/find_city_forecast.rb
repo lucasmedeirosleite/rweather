@@ -10,11 +10,11 @@ class FindCityForecast
     @repository = repository
   end
 
-  def call(lat:, lon:)
-    city = repository.find(lat: lat, lon: lon)
+  def call(name:)
+    city = repository.find(name: name)
     return Result.new(:found, city) if city.present?
 
-    result = client.find(lat: lat, lon: lon)
+    result = client.find(term: name)
     return Result.new(:not_found, nil) unless result.success?
 
 

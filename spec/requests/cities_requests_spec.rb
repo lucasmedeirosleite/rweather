@@ -3,10 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Cities', type: :request do
-  let(:city_name) { 'Fortaleza' }
   let(:country) { 'BR' }
-  let(:lat) { -3.72 }
-  let(:lon) { -38.52 }
+  let(:term) { 'Fortaleza' }
   let(:now) { Time.new(2_018, 1, 17, 14, 0, 0).utc }
 
   let(:headers) do
@@ -21,12 +19,12 @@ RSpec.describe 'Cities', type: :request do
 
   describe 'GET #search' do
     subject(:get_search_city) do
-      get search_api_cities_path, params: { lat: lat, lon: lon }, headers: headers
+      get search_api_cities_path, params: { term: term }, headers: headers
     end
 
     context 'when city exists' do
       let!(:city) do
-        bootstrap_city(city: city_name, country: country, lat: lat, lon: lon, date: now)
+        bootstrap_city(city: term, country: country, date: now)
       end
 
       it 'returns a success response' do
@@ -37,8 +35,7 @@ RSpec.describe 'Cities', type: :request do
     end
 
     context 'when city does not exist' do
-      let(:lat) { -200.50 }
-      let(:lon) { 1_000.05 }
+      let(:term) { 'asjlsajasdjasd' }
 
       it 'returns a not found response' do
         VCR.use_cassette('rweather/integration/not_found_location') do

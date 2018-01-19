@@ -1,24 +1,106 @@
-# README
+# RWEATHER APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application searches for forecasts using the [Open Weather API](http://openweathermap.org/api):
 
-Things you may want to cover:
+## Application stack:
 
-* Ruby version
+The application is divided in two parts:
 
-* System dependencies
+* Backend;
+* Frontend;
 
-* Configuration
+### Backend
 
-* Database creation
+The backend stack is:
 
-* Database initialization
+* Ruby (2.4.3) / Rails (5.1);
+* PostgreSQL;
 
-* How to run the test suite
+The Rails application was tested using `RSpec`;
 
-* Services (job queues, cache servers, search engines, etc.)
+### Frontend
 
-* Deployment instructions
+The frontend stack is:
 
-* ...
+* ReactJS;
+* ReactBootstrap;
+* Redux;
+* ReduxPromise;
+* Axios (for http requests to the backend);
+
+#### Running locally
+
+##### Installing Dependencies
+
+You will need to have installed:
+
+* Ruby 2.4.2
+* NodeJS 6+
+* Yarn
+* PostgreSQL
+
+###### Running locally
+
+Just run `bin/rails s` to start the server at `http://localhost:3000`
+
+##### Running tests
+
+To run the specs just use `bundle exec rspec spec`
+
+#### Open API
+
+##### Structures
+
+```javascript
+const date_s = string('UTC date on format YYYY-MM-DD HH:mm:ss')
+
+const Country = {
+  name: string,
+}
+
+Coordinate = {
+  latitude: number,
+  longitude: number
+}
+
+Wind = {
+  speed: number,
+  direction: number
+}
+
+Temperature = {
+  value: number,
+  min: number,
+  max: number,
+  pressure: number,
+  humidity: number
+}
+
+Weather = {
+  main: string,
+  description: string,
+  visibility: number,
+  clouds: number
+}
+
+Forecast = {
+  date: date_s,
+  weather: Weather,
+  temperature: Temperature,
+  wind: Wind
+}
+
+const City = {
+  name: string,
+  country: Country,
+  coordinate: Coordinate,
+  forecast: Forecast
+}
+```
+
+##### ENDPOINTS
+
+HTTP METHOD| Path | Returns | Status | Description
+--- | --- | --- | --- | ---
+GET | /api/cities/random | [City] | 200, 500 | List random forecasts of cities
+GET | /api/cities/search?term={term} | [City] | 200, 404, 500 | Searches for a city by its name

@@ -9,21 +9,20 @@ module OpenWeather
 
       export :call, as: :find
 
-      def initialize(lat:, lon:, client: Client.new)
-        @lat = lat
-        @lon = lon
+      def initialize(term:, client: Client.new)
+        @term=term
         @client = client
       end
 
       def call
-        client.get(URI, params: { lat: lat, lon: lon })
+        client.get(URI, params: { q: term })
       end
 
       private
 
       URI = 'weather'
 
-      attr_reader :lat, :lon, :client
+      attr_reader :term, :client
     end
   end
 end

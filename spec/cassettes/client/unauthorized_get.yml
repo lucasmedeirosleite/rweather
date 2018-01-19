@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Thu, 18 Jan 2018 02:30:39 GMT
+      - Fri, 19 Jan 2018 03:27:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -41,5 +41,5 @@ http_interactions:
       string: '{"cod":401, "message": "Invalid API key. Please see http://openweathermap.org/faq#error401
         for more info."}'
     http_version: 
-  recorded_at: Thu, 18 Jan 2018 02:30:40 GMT
+  recorded_at: Fri, 19 Jan 2018 03:27:24 GMT
 recorded_with: VCR 4.0.0

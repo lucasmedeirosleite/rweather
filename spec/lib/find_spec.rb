@@ -4,17 +4,16 @@ require 'rails_helper'
 require 'open_weather'
 
 RSpec.describe OpenWeather::UseCases::Find do
-  subject(:use_case) { described_class.new(lat: lat, lon: lon, client: client) }
+  subject(:use_case) { described_class.new(term: term, client: client) }
 
-  let(:lat) { -3.72 }
-  let(:lon) { -38.52 }
+  let(:term) { 'Fortaleza' }
   let(:client) { double(:client) }
 
   describe '#call' do
     subject(:find) { use_case.call }
 
     let(:content) { double }
-    let(:params) { { lat: lat, lon: lon } }
+    let(:params) { { q: term } }
 
     before do
       allow(client).to receive(:get)

@@ -20,6 +20,7 @@ class Forecasts extends Component {
 
     return this.props.cities.map((city, index) => {
       const { name, forecast } = city;
+      const { weather } = forecast;
 
       return (
         <tr key={index + 1}>
@@ -30,10 +31,10 @@ class Forecasts extends Component {
             {forecast.temperature.value}
           </td>
           <td>
-            {forecast.weather.main}
+            {weather ? forecast.weather.main : '-'}
           </td>
           <td>
-            {`${forecast.weather.clouds}%`}
+            {weather ? `${forecast.weather.clouds}%` : '-'}
           </td>
           <td>
             {forecast.wind.speed}

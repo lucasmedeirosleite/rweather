@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&lat=-3.72&lon=-38.52&units=metric
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&q=Fortaleza&units=metric
     body:
       encoding: US-ASCII
       string: ''
@@ -21,15 +21,15 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Thu, 18 Jan 2018 02:30:53 GMT
+      - Fri, 19 Jan 2018 03:27:28 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '439'
+      - '443'
       Connection:
       - keep-alive
       X-Cache-Key:
-      - "/data/2.5/weather?lat=-3.72&lon=-38.52&units=metric"
+      - "/data/2.5/weather?q=fortaleza&units=metric"
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Credentials:
@@ -38,8 +38,8 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"coord":{"lon":-38.52,"lat":-3.72},"weather":[{"id":803,"main":"Clouds","description":"broken
-        clouds","icon":"04n"}],"base":"stations","main":{"temp":28,"pressure":1013,"humidity":74,"temp_min":28,"temp_max":28},"visibility":10000,"wind":{"speed":5.1,"deg":70},"clouds":{"all":75},"dt":1516240800,"sys":{"type":1,"id":4498,"message":0.003,"country":"BR","sunrise":1516264520,"sunset":1516308824},"id":6320062,"name":"Fortaleza","cod":200}'
+      string: '{"coord":{"lon":-38.52,"lat":-3.73},"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03n"}],"base":"stations","main":{"temp":27,"pressure":1013,"humidity":78,"temp_min":27,"temp_max":27},"visibility":10000,"wind":{"speed":3.6,"deg":60},"clouds":{"all":40},"dt":1516327200,"sys":{"type":1,"id":4498,"message":0.0059,"country":"BR","sunrise":1516350942,"sunset":1516395239},"id":6320062,"name":"Fortaleza","cod":200}'
     http_version: 
-  recorded_at: Thu, 18 Jan 2018 02:30:53 GMT
+  recorded_at: Wed, 17 Jan 2018 14:00:00 GMT
 recorded_with: VCR 4.0.0

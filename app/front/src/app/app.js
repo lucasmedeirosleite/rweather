@@ -4,6 +4,7 @@ import NavigationBar from './components/navigation_bar';
 import SearchBar from './components/search_bar';
 import Container from './components/container';
 import Forecasts from './components/forecasts';
+import Messages from './components/messages';
 
 const App = () => {
   return (
@@ -13,6 +14,12 @@ const App = () => {
       </NavigationBar>
 
       <Container>
+        <Row>
+          <Col md={12}>
+            <Messages />
+          </Col>
+        </Row>
+
         <Row>
           <Col md={12}>
             <Forecasts />

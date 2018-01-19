@@ -5,12 +5,12 @@ class CitiesRepository
     @data_source = data_source
   end
 
-  def find(lat:, lon:)
+  def find(name:)
     data_source
       .includes(:country)
       .includes(:coordinate)
       .includes(forecasts: %i[wind weather temperature])
-      .where(coordinates: { latitude: lat, longitude: lon })
+      .where('name LIKE :name', name: "%#{name}%")
       .where('forecasts.date >= ?', 1.hour.ago)
       .order('forecasts.date DESC')
       .limit(1)

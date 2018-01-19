@@ -6,11 +6,9 @@ RSpec.describe CitiesRepository, type: :repository do
   subject(:repository) { described_class.new }
 
   describe '#find' do
-    subject(:find) { repository.find(lat: lat, lon: lon) }
+    subject(:find) { repository.find(name: name) }
 
-    let(:lat) { -3.72 }
-    let(:lon) { -38.52 }
-
+    let(:name) { 'Fortaleza' }
     let(:now) { Time.new(2_018, 1, 16) }
 
     before do
@@ -26,7 +24,7 @@ RSpec.describe CitiesRepository, type: :repository do
     end
 
     context 'when city exist' do
-      let!(:city) { bootstrap_city(lat: lat, lon: lon, date: date) }
+      let!(:city) { bootstrap_city(city: name, date: date) }
 
       context 'when forecast is more than one hour from now' do
         let(:date) { now - 2.hours }

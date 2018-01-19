@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Thu, 18 Jan 2018 02:30:56 GMT
+      - Fri, 19 Jan 2018 03:27:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:

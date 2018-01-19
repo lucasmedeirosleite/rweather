@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&lat=-200.5&lon=1000.05&units=metric
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=ed6fc52262af7e1bb1155181b37d2fc2&q=asjlsajasdjasd&units=metric
     body:
       encoding: US-ASCII
       string: ''
@@ -15,21 +15,21 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 404
+      message: Not Found
     headers:
       Server:
       - openresty
       Date:
-      - Thu, 18 Jan 2018 02:30:55 GMT
+      - Fri, 19 Jan 2018 03:27:26 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '47'
+      - '40'
       Connection:
       - keep-alive
       X-Cache-Key:
-      - "/data/2.5/weather?lat=-200.5&lon=1000.05&units=metric"
+      - "/data/2.5/weather?q=asjlsajasdjasd&units=metric"
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Credentials:
@@ -38,7 +38,7 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"cod":"400","message":"-200.5 is not a float"}'
+      string: '{"cod":"404","message":"city not found"}'
     http_version: 
   recorded_at: Wed, 17 Jan 2018 17:00:00 GMT
 recorded_with: VCR 4.0.0

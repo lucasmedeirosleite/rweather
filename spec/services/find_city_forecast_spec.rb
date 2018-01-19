@@ -9,18 +9,16 @@ RSpec.describe FindCityForecast, type: :service do
   after { Timecop.return }
 
   describe '#call' do
-    subject(:find) { service.call(lat: lat, lon: lon) }
+    subject(:find) { service.call(name: name) }
 
-    let(:lat) { -3.72 }
-    let(:lon) { -38.52 }
+    let(:name) { 'Fortaleza' }
     let(:now) { Time.new(2_018, 1, 17, 11, 0).utc }
 
     let(:result) { double(:result, status: status, data: city) }
 
     context 'when city not in db' do
       context 'when city not found by open weather' do
-        let(:lat) { -200.50 }
-        let(:lon) { 1_000.05 }
+        let(:name) { 'asjlsajasdjasd' }
 
         it 'does not find the city' do
           VCR.use_cassette('open_weather/integration/find_location_weather_invalid_location') do
@@ -48,36 +46,36 @@ RSpec.describe FindCityForecast, type: :service do
             coordinate = city.coordinate
 
             expect(coordinate).to be_a(Coordinate)
-            expect(coordinate.latitude).to eq(lat)
-            expect(coordinate.longitude).to eq(lon)
+            expect(coordinate.latitude).to eq(-3.73)
+            expect(coordinate.longitude).to eq(-38.52)
 
             forecast = city.forecasts.first
 
             expect(forecast).to be_a(Forecast)
-            expect(forecast.date).to eq(Time.at(1_516_240_800).utc)
+            expect(forecast.date).to eq(Time.at(1_516_327_200).utc)
 
             temperature = forecast.temperature
 
             expect(temperature).to be_a(Temperature)
-            expect(temperature.value).to eq(28)
-            expect(temperature.min).to eq(28)
-            expect(temperature.max).to eq(28)
+            expect(temperature.value).to eq(27)
+            expect(temperature.min).to eq(27)
+            expect(temperature.max).to eq(27)
             expect(temperature.pressure).to eq(1_013)
-            expect(temperature.humidity).to eq(74)
+            expect(temperature.humidity).to eq(78)
 
             wind = forecast.wind
 
             expect(wind).to be_a(Wind)
-            expect(wind.speed).to eq(5.1)
-            expect(wind.direction).to eq(70)
+            expect(wind.speed).to eq(3.6)
+            expect(wind.direction).to eq(60)
 
             weather = forecast.weather
 
             expect(weather).to be_a(Weather)
             expect(weather.main).to eq('Clouds')
-            expect(weather.description).to eq('broken clouds')
+            expect(weather.description).to eq('scattered clouds')
             expect(weather.visibility).to eq(10_000)
-            expect(weather.clouds).to eq(75)
+            expect(weather.clouds).to eq(40)
           end
         end
 
@@ -99,7 +97,7 @@ RSpec.describe FindCityForecast, type: :service do
 
     context 'when city in db' do
       let(:status) { :found }
-      let!(:city) { bootstrap_city(lat: lat, lon: lon, date: now) }
+      let!(:city) { bootstrap_city(city: name, date: now) }
 
       it 'retrieves city from db' do
         expect(find.status).to eq(:found)

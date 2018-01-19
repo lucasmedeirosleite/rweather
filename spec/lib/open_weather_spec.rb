@@ -68,12 +68,13 @@ RSpec.describe OpenWeather do
       end
     end
 
+    let(:term) { 'Fortaleza' }
     let(:lat) { -3.72 }
     let(:lon) { -38.52 }
 
     describe '.find' do
       subject(:find) do
-        described_class.find(lat: lat, lon: lon)
+        described_class.find(term: term)
       end
 
       it 'returns only one city' do
