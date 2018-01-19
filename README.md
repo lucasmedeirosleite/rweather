@@ -47,7 +47,11 @@ You will need to have installed:
 
 ###### Running locally
 
-Just run `bin/rails s` to start the server at `http://localhost:3000`
+Just run:
+* `bundle install`
+* `yarn install`
+* `bin/rails db:create db:migrate`
+* `bin/rails s` to start the server at `http://localhost:3000`
 
 ##### Running tests
 
