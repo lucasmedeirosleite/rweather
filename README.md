@@ -30,6 +30,12 @@ The frontend stack is:
 
 #### Running locally
 
+First follow these steps:
+
+* run `cp .env.sample .env`
+* Update postgres conf with yours
+* Update Open Weather API key with yours
+
 ##### Installing Dependencies
 
 You will need to have installed:
